@@ -38,17 +38,23 @@ public class DrCropController {
         return "upload-image";
     }
 
-    @PostMapping("/upload")
+    @PostMapping("/uploadweb")
     public String uploadImage(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes){
 
-        if (conditionService.uploadImage(file, redirectAttributes)){
+        String fileName = "abcde";// conditionService.uploadImage(file, redirectAttributes, userId);
+
+        if (fileName != null){
             // if the image is valid send it to the python app
 
-            ConditionResult conditionResult = conditionService.sendImageToMLLayer("abcde");
+            String base64img = "abcde";
+
+            ConditionResult conditionResult = conditionService.sendImageToMLLayer(base64img);
 
             if(conditionResult != null){
                 System.out.println("Plant name : " +conditionResult.plantName);
                 System.out.println("Condition name : " +conditionResult.conditionName);
+
+                // save the condition results to a pdf of the same name
             }
             return "redirect:download"; // might need changes if output is valid or invalid
         }
@@ -60,7 +66,7 @@ public class DrCropController {
         return "condition-results";
     }
 
-    @GetMapping("/downloadfile") // to download the pdf report 
+    @GetMapping("/downloadfileweb") // to download the pdf report
     public ResponseEntity<InputStreamResource> downloadPdfFile() throws IOException {
 
         String id = "abcde.pdf";

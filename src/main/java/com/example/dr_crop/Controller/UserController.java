@@ -22,7 +22,8 @@ public class UserController {
         userService.createNewUser("ayush", "ayush");
         userService.createNewUser("subh", "subh");
         User last = userService.createNewUser("sai", "sai");
-        return ResponseEntity.ok(last);
+        int count = 3;
+        return ResponseEntity.ok(3);
     }
 
     @PostMapping("/newuser")

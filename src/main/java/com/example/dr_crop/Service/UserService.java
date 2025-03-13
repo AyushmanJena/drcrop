@@ -7,12 +7,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    private final ConcurrentHashMap<String, String> tokenStore = new ConcurrentHashMap<>();
 
     public User createNewUser(String username, String password){
         User user = new User(username, password);
@@ -33,5 +37,19 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public String authenticate(String username, String password) {
+        Optional<User> userOpt = userRepository.findByUsername(username);
+        if (userOpt.isPresent() && userOpt.get().getPassword().equals(password)) {
+            String token = UUID.randomUUID().toString(); // Generate a random token
+            tokenStore.put(token, userOpt.get().getId()); // Store token with userId
+            return token;
+        }
+        return null;
+    }
+
+    public String getUserIdFromToken(String token) {
+        return tokenStore.get(token);
     }
 }

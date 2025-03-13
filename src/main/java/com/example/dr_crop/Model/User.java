@@ -10,6 +10,7 @@ public class User {
     private String id;
     private String username;
     private String password;
+    private String conditionImage;
 
     public User() {}
 
@@ -40,5 +41,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getConditionImage() {
+        return conditionImage;
+    }
+
+    public void setConditionImage(String conditionImage) {
+        this.conditionImage = conditionImage;
     }
 }

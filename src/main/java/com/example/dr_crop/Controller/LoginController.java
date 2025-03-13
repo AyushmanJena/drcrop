@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class LoginController {
-    @GetMapping("/") // needs a new controller
+    @GetMapping("/loginuser") // needs a new controller
     public String showLoginPage(){
         return "login-page";
     }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Enter Soil Details : </h2>
+<form action="/web/soil-recommendation" method="post">
+    <label>Nitrogen Percentage : </label>
+    <input type="number" step = "0.01" name="nitrogen" required>
+    <br>
+    <label>Oxygen Percentage : </label>
+    <input type="number" step = "0.01" name="oxygen" required>
+    <br>
+    <label>Phosphorus Percentage : </label>
+    <input type="number" step = "0.01" name="phosphorus" required>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+<p th:if="${error}" th:text="${error}" style="color:red;"></p>
+</body>
+</html>

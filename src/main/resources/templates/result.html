@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Condition Result</title>
+</head>
+<body>
+<h2>Diagnosis Result</h2>
+<p><strong>Plant Name:</strong> <span th:text="${conditionResult.plantName}"></span></p>
+<p><strong>Condition:</strong> <span th:text="${conditionResult.conditionName}"></span></p>
+<a href="/web/downloadfile">Download Report</a>
+</body>
+</html>

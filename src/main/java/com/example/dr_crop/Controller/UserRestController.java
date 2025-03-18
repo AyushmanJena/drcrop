@@ -5,31 +5,26 @@ import com.example.dr_crop.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/users")
-public class UserController {
-
+public class UserRestController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/testnewusers")
+    @GetMapping("/newuser")
     public ResponseEntity<?> newUser(){
-        userService.createNewUser("ayush", "ayush");
-        userService.createNewUser("subh", "subh");
-        User last = userService.createNewUser("sai", "sai");
-        int count = 3;
-        return ResponseEntity.ok(3);
+        String id = userService.createNewUser("ayushmanjena24@gmail.com", "Ayushman", " ", "jena", "7077126295");
+        return ResponseEntity.ok(id);
     }
 
     @PostMapping("/newuser")
-    public ResponseEntity<User> createNewUser(@RequestBody User user){
-        User save = userService.createNewUser(user.getUsername(), user.getPassword());
-        return ResponseEntity.ok(save);
+    public ResponseEntity<?> createNewUser(@RequestBody User user){
+        String id = userService.createNewUser(user.getEmail(), user.getFname(), user.getMname(), user.getLname(), user.getPhone());
+        return ResponseEntity.ok(id);
     }
 
     @GetMapping("/all") // get all users
@@ -38,11 +33,11 @@ public class UserController {
         return users.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(users);
     }
 
-    @GetMapping("/{id}") // get user from id
-    public ResponseEntity<?> getUser(@PathVariable String id){
-        User user = userService.getUser(id);
+    @GetMapping("/{email}") // get user from id
+    public ResponseEntity<?> getUser(@PathVariable String email){
+        User user = userService.getUserByEmail(email);
         if(user != null){
-            System.out.println(user.getId());
+            System.out.println(user.getEmail());
             return ResponseEntity.ok(user);
         }
         return ResponseEntity.notFound().build();
@@ -54,4 +49,5 @@ public class UserController {
         return deleted ? ResponseEntity.ok("User deleted successfully")
                 : ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
     }
+
 }

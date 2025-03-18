@@ -42,8 +42,52 @@ public class WebController {
     }
 
     @GetMapping("/login")
-    public String showLoginPage() {
-        return "login"; // Renders login.html
+    public String showLoginPage() { // initially asks for email only
+        return "login";
+    }
+
+    @PostMapping("/get-email")
+    public String getEmail(@RequestParam String email, Model model, HttpSession session) {
+        if (!userService.containsUser(email)) {
+            model.addAttribute("error", "Invalid credentials");
+            return "login";
+        }
+
+        String generatedOTP = userService.generateOTP();
+        userService.sendOtpToMail(email, generatedOTP);  // Ensure OTP is actually sent
+
+        session.setAttribute("generatedOtp", generatedOTP);
+        session.setAttribute("email", email);
+
+        model.addAttribute("otpSent", true);
+        return "login";
+    }
+
+    @PostMapping("/verify")
+    public String verifyOtp(@RequestParam String otp, HttpSession session, Model model){
+        System.out.println(1);
+        String generatedOtp = (String) session.getAttribute("generatedOtp");
+        String email = (String) session.getAttribute("email");
+        System.out.println(2);
+        if (generatedOtp == null) {
+            model.addAttribute("error", "Session expired. Please try again.");
+            return "login";
+        }
+        System.out.println(3);
+        System.out.println(email);
+
+        String token = userService.authenticate(email, generatedOtp, otp);
+        System.out.println(4);
+        System.out.println(token);
+
+        if (token == null) {
+            model.addAttribute("error", "Invalid OTP");
+            return "login";
+        }
+
+        session.setAttribute("token", token);
+        session.removeAttribute("generatedOtp");  // Remove OTP from session after successful login
+        return "homepage";
     }
 
     @GetMapping("/homepage")
@@ -57,16 +101,7 @@ public class WebController {
         return "homepage";
     }
 
-    @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password, Model model, HttpSession session) {
-        String token = userService.authenticate(username, password);
-        if (token != null) {
-            session.setAttribute("token", token);
-            return "redirect:/web/homepage";
-        }
-        model.addAttribute("error", "Invalid credentials");
-        return "login";
-    }
+
 
     // Condition Detection Endpoints
 

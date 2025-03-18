@@ -8,15 +8,21 @@ public class User {
 
     @Id
     private String id;
-    private String username;
-    private String password;
-    private String conditionImage;
+
+    private String email;
+    private String fname;
+    private String mname;
+    private String lname;
+    private String phone;
 
     public User() {}
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public User(String email, String fname, String mname, String lname, String phone) {
+        this.email = email;
+        this.fname = fname;
+        this.mname = mname;
+        this.lname = lname;
+        this.phone = phone;
     }
 
     public String getId() {
@@ -27,27 +33,43 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getFname() {
+        return fname;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setFname(String fname) {
+        this.fname = fname;
     }
 
-    public String getConditionImage() {
-        return conditionImage;
+    public String getMname() {
+        return mname;
     }
 
-    public void setConditionImage(String conditionImage) {
-        this.conditionImage = conditionImage;
+    public void setMname(String mname) {
+        this.mname = mname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

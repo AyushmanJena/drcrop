@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Dr Crop</title>
 </head>
@@ -6,5 +7,7 @@
     Dr Crop
     <br>
     <a href="/web/login">LOGIN</a>
+
+    <p th:if="${message}" th:text="${message}"></p>
 </body>
 </html>

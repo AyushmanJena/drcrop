@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>DR CROP</title>
+</head>
+
+<body>
+<h2>USER DETAILS</h2>
+
+<div>
+    <div>User Name : <span th:text="${name}"></span></div>
+    <div>Email : <span th:text="${email}"></span></div>
+    <div>Phone No. : <span th:text="${phone}"></span></div>
+    <br>
+    <form action="/accounts/log-out" method="get">
+        <button type = "submit">LOG OUT</button>
+    </form>
+    <br>
+    <div>Reference Id : <span th:text="${id}"></span></div>
+    <br>
+    <br>
+
+    <form action="/accounts/delete-account" method="post">
+        <input type="hidden" id="email" name="email" th:value="${email}"  required>
+        <button type = "submit">Delete Account</button>
+    </form>
+
+    <br>
+    <a href="www.google.com">User Support</a>
+</div>
+</body>
+
+</html>

@@ -49,12 +49,14 @@ public class WebController {
     @PostMapping("/get-email")
     public String getEmail(@RequestParam String email, Model model, HttpSession session) {
         if (!userService.containsUser(email)) {
-            model.addAttribute("error", "Invalid credentials");
+            model.addAttribute("error", "Account does not exist");
             return "login";
         }
 
-        String generatedOTP = userService.generateOTP();
-        userService.sendOtpToMail(email, generatedOTP);  // Ensure OTP is actually sent
+        //String generatedOTP = userService.generateOTP();
+        //userService.sendOtpToMail(email, generatedOTP);  // Ensure OTP is actually sent
+
+        String generatedOTP = "abc";
 
         session.setAttribute("generatedOtp", generatedOTP);
         session.setAttribute("email", email);

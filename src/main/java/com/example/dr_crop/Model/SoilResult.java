@@ -2,12 +2,14 @@ package com.example.dr_crop.Model;
 
 public class SoilResult {
     private String crop;
+    private String suggestion;
 
     public SoilResult() {
     }
 
-    public SoilResult(String crop) {
+    public SoilResult(String crop, String suggestion) {
         this.crop = crop;
+        this.suggestion = suggestion;
     }
 
     public String getCrop() {
@@ -16,5 +18,13 @@ public class SoilResult {
 
     public void setCrop(String crop) {
         this.crop = crop;
+    }
+
+    public String getSuggestion() {
+        return suggestion;
+    }
+
+    public void setSuggestion(String suggestion) {
+        this.suggestion = suggestion;
     }
 }

@@ -1,40 +1,95 @@
 package com.example.dr_crop.Model;
 
 public class SoilRequest {
-    private float nitrogen;
-    private float phosphorous;
-    private float oxygen;
+    private float n;
+    private float p;
+    private float k;
+    private float temp;
+    private float humidity;
+    private float pH;
+    private float rainfall;
 
-    public SoilRequest() {
+    // Default constructor
+    public SoilRequest() {}
+
+    // Parameterized constructor
+    public SoilRequest(float n, float p, float k, float temp, float humidity, float pH, float rainfall) {
+        this.n = n;
+        this.p = p;
+        this.k = k;
+        this.temp = temp;
+        this.humidity = humidity;
+        this.pH = pH;
+        this.rainfall = rainfall;
     }
 
-    public SoilRequest(float nitrogen, float phosphorous, float oxygen) {
-        this.nitrogen = nitrogen;
-        this.phosphorous = phosphorous;
-        this.oxygen = oxygen;
+    // Getters and Setters
+    public float getN() {
+        return n;
     }
 
-    public float getNitrogen() {
-        return nitrogen;
+    public void setN(int n) {
+        this.n = n;
     }
 
-    public void setNitrogen(float nitrogen) {
-        this.nitrogen = nitrogen;
+    public float getP() {
+        return p;
     }
 
-    public float getPhosphorous() {
-        return phosphorous;
+    public void setP(int p) {
+        this.p = p;
     }
 
-    public void setPhosphorous(float phosphorous) {
-        this.phosphorous = phosphorous;
+    public float getK() {
+        return k;
     }
 
-    public float getOxygen() {
-        return oxygen;
+    public void setK(int k) {
+        this.k = k;
     }
 
-    public void setOxygen(float oxygen) {
-        this.oxygen = oxygen;
+    public float getTemp() {
+        return temp;
+    }
+
+    public void setTemp(int temp) {
+        this.temp = temp;
+    }
+
+    public float getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(int humidity) {
+        this.humidity = humidity;
+    }
+
+    public float getPH() {
+        return pH;
+    }
+
+    public void setPH(int pH) {
+        this.pH = pH;
+    }
+
+    public float getRainfall() {
+        return rainfall;
+    }
+
+    public void setRainfall(int rainfall) {
+        this.rainfall = rainfall;
+    }
+
+    @Override
+    public String toString() {
+        return "NutrientRequest{" +
+                "n=" + n +
+                ", p=" + p +
+                ", k=" + k +
+                ", temp=" + temp +
+                ", humidity=" + humidity +
+                ", pH=" + pH +
+                ", rainfall=" + rainfall +
+                '}';
     }
 }

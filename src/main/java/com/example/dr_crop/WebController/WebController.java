@@ -185,8 +185,12 @@ public class WebController {
 
     @PostMapping("/soil-recommendation")
     public String getSoilRecommendation(@RequestParam float nitrogen,
-                                        @RequestParam float oxygen,
                                         @RequestParam float phosphorus,
+                                        @RequestParam float potassium,
+                                        @RequestParam float temperature,
+                                        @RequestParam float humidity,
+                                        @RequestParam float pH,
+                                        @RequestParam float rainfall,
                                         HttpSession session, Model model) {
 
         String token = (String) session.getAttribute("token");
@@ -199,12 +203,13 @@ public class WebController {
         if (userId == null) {
             return "redirect:/web/login";
         }
-        SoilRequest soilRequest = new SoilRequest(nitrogen, oxygen, phosphorus);
+        SoilRequest soilRequest = new SoilRequest(nitrogen, phosphorus, potassium, temperature,humidity, pH, rainfall);
 
         SoilResult soilResult = soilService.getSoilResult(soilRequest);
 
         if (soilResult != null) {
             model.addAttribute("crop", soilResult.getCrop());
+            model.addAttribute("suggestion", soilResult.getSuggestion());
             return "soil-result.html";
         }
 

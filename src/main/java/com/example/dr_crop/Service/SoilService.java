@@ -14,7 +14,8 @@ public class SoilService {
     private final RestTemplate restTemplate = new RestTemplate();
 
     public SoilResult getSoilResult(SoilRequest soilRequest){
-        String url = "http://localhost:9091/api/recommend";
+//        String url = "http://localhost:9091/api/recommend";
+        String url = "http://localhost:9091/soil";
 
         SoilRequest body = soilRequest;
 

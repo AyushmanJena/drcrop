@@ -119,7 +119,7 @@ public class WebController {
     }
 
     @PostMapping("/upload")
-    public String uploadImage(@RequestParam("file") MultipartFile file, HttpSession session, RedirectAttributes redirectAttributes, Model model) {
+    public String uploadImage(@RequestParam("file") MultipartFile file, @RequestParam String crop, HttpSession session, RedirectAttributes redirectAttributes, Model model) {
         // String token = (String)model.getAttribute("token");
         String token = (String) session.getAttribute("token");
         System.out.println("token2 : " + token);
@@ -132,19 +132,22 @@ public class WebController {
             return "redirect:/web/login";
         }
 
+        System.out.println("file : " + file.getOriginalFilename());
+        System.out.println("crop : " + crop);
+
         String fileName = conditionService.uploadImage(file, redirectAttributes, userId);
         if (fileName != null) {
-            // System.out.println(1);
+             System.out.println("upload : " + 1);
             String inputStoragePath = "D:/DR-CROP/dr-crop/input-storage/";
-            String base64img = conditionService.convertImageToBase64(inputStoragePath + fileName + ".png");
-            ConditionResult conditionResult = conditionService.sendImageToMLLayer(base64img);
-            // System.out.println(2);
+            // String base64img = conditionService.convertImageToBase64(inputStoragePath + fileName + ".png");
+            ConditionResult conditionResult = conditionService.sendImageToMLLayer(fileName, crop);
+            System.out.println("upload : " + 2);
 
             if (conditionResult != null) {
-                // System.out.println(3);
+                System.out.println("upload : " + 3);
                 conditionService.convertConditionResultToPdf(conditionResult, fileName);
                 model.addAttribute("conditionResult", conditionResult);
-                System.out.println(4);
+                System.out.println("upload : " + 4);
                 return "result";
             }
         }

@@ -38,28 +38,28 @@ public class DrCropController { // Might delete this
         return "upload-image";
     }
 
-    @PostMapping("/uploadweb")
-    public String uploadImage(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes){
-
-        String fileName = "abcde";// conditionService.uploadImage(file, redirectAttributes, userId);
-
-        if (fileName != null){
-            // if the image is valid send it to the python app
-
-            String base64img = "abcde";
-
-            ConditionResult conditionResult = conditionService.sendImageToMLLayer(base64img);
-
-            if(conditionResult != null){
-                System.out.println("Plant name : " +conditionResult.plantName);
-                System.out.println("Condition name : " +conditionResult.conditionName);
-
-                // save the condition results to a pdf of the same name
-            }
-            return "redirect:download"; // might need changes if output is valid or invalid
-        }
-        return "redirect:download";
-    }
+//    @PostMapping("/uploadweb")
+//    public String uploadImage(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes){
+//
+//        String fileName = "abcde";// conditionService.uploadImage(file, redirectAttributes, userId);
+//
+//        if (fileName != null){
+//            // if the image is valid send it to the python app
+//
+//            String base64img = "abcde";
+//
+//            ConditionResult conditionResult = conditionService.sendImageToMLLayer(fileName);
+//
+//            if(conditionResult != null){
+//                System.out.println("Plant name : " +conditionResult.plantName);
+//                System.out.println("Condition name : " +conditionResult.conditionName);
+//
+//                // save the condition results to a pdf of the same name
+//            }
+//            return "redirect:download"; // might need changes if output is valid or invalid
+//        }
+//        return "redirect:download";
+//    }
 
     @GetMapping("/download") // display the page where you can download the file
     public String downloadPage(){

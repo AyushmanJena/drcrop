@@ -8,6 +8,16 @@
 <form action="/web/upload" method="post" enctype="multipart/form-data">
     <input type="file" name="file" required>
     <br>
+    <label for="crop">Choose Crop:</label>
+    <select id="crop" name="crop">
+        <option value="rice">Rice</option>
+        <option value="wheat">Wheat</option>
+        <option value="apple">Apple</option>
+        <option value="sugarcane">Sugarcane</option>
+        <option value="tomato">Tomato</option>
+    </select>
+    <br>
+    <br>
     <button type="submit">Upload</button>
 </form>
 <p th:if="${error}" th:text="${error}" style="color:red;"></p>

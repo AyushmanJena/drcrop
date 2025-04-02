@@ -1,5 +1,6 @@
 package com.example.dr_crop.Service;
 
+import com.example.dr_crop.Model.ConditionRequest;
 import com.example.dr_crop.Model.ConditionResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -55,31 +56,38 @@ public class ConditionService {
         return userId + "img";
     }
 
-    public ConditionResult sendImageToMLLayer(String id){
+    public ConditionResult sendImageToMLLayer(String id, String cropName) {
         try {
-            String url = "http://localhost:9091/api/process"; // String processing app URL
+            String url = "http://localhost:9091/api/process"; // ML service URL
 
-            String text = "Hello, this is a test message!";
+            // Creating JSON request body
+            ConditionRequest request = new ConditionRequest(id, cropName);
 
-            // Prepare request body
-            MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
-            body.add("message", text);
-
+            // Setting headers
             HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+            headers.setContentType(MediaType.APPLICATION_JSON); // Sending JSON
 
-            HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
+            // Creating HttpEntity with request body and headers
+            HttpEntity<ConditionRequest> requestEntity = new HttpEntity<>(request, headers);
 
-            // Send request to Application B
-            ResponseEntity<ConditionResult> response = restTemplate.exchange(url, HttpMethod.POST, requestEntity, ConditionResult.class);
+            // Sending POST request
+            ResponseEntity<ConditionResult> response = restTemplate.exchange(
+                    url, HttpMethod.POST, requestEntity, ConditionResult.class
+            );
 
+            // Extracting response
             ConditionResult conditionResult = response.getBody();
+
+            System.out.println("test : 5");
+            System.out.println("Plant Name: " + conditionResult.getPlantName());
 
             return conditionResult;
         } catch (Exception e) {
+            e.printStackTrace(); // Print error if exception occurs
             return null;
         }
     }
+
 
     public String convertImageToBase64(String fileName) {
         String encoded = null;
@@ -111,12 +119,14 @@ public class ConditionService {
             Font paraFont = FontFactory.getFont(FontFactory.HELVETICA, 16);
             Paragraph paragraph1 = new Paragraph("\nPlant Name : " + conditionResult.plantName, paraFont);
             Paragraph paragraph2 = new Paragraph("\nCondition : " + conditionResult.conditionName, paraFont);
+            Paragraph paragraph3 = new Paragraph("\nAccuracy : " + conditionResult.accuracy, paraFont);
 
             // to add content during runtime
             // paragraph1.add(new Chunk("\nPlant Name : " + paragraph1));
             document.add(paragraph1);
             //paragraph2.add(new Chunk("\nCondition : " + paragraph2));
             document.add(paragraph2);
+            document.add(paragraph3);
 
             document.close();
 

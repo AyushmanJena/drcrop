@@ -51,7 +51,9 @@ public class UserController {
     @GetMapping("/account/{id}")
     public String showUserAccount(@PathVariable String id, Model model){
         User user = userService.getUserById(id);
-        System.out.println(user.getMname());
+        if(user == null){
+            return "accounts/account";
+        }
         String middleName;
         if(user.getMname() == null){
             middleName = "";

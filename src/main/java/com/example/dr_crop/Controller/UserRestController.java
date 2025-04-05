@@ -43,11 +43,11 @@ public class UserRestController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/{id}") // delete user from id
-    public ResponseEntity<?> deleteUser(@PathVariable String id) {
-        boolean deleted = userService.deleteUser(id);
-        return deleted ? ResponseEntity.ok("User deleted successfully")
-                : ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
-    }
+//    @DeleteMapping("/{id}") // delete user from id
+//    public ResponseEntity<?> deleteUser(@PathVariable String id) {
+//        boolean deleted = userService.deleteUser(id);
+//        return deleted ? ResponseEntity.ok("User deleted successfully")
+//                : ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+//    }
 
 }

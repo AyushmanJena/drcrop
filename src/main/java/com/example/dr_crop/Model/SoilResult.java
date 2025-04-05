@@ -1,7 +1,11 @@
 package com.example.dr_crop.Model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class SoilResult {
     private String crop;
+
+    @JsonProperty("Suggestion")
     private String suggestion;
 
     public SoilResult() {

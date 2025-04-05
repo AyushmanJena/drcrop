@@ -4,8 +4,13 @@
 <head>
     <title>DR CROP : LOGIN</title>
 </head>
-
+<link rel="stylesheet"  th:href="@{/css/Loginpage.css}">
 <body>
+<div class="topnav">
+    <img th:src="@{/images/logo.png}">
+    <a href="#Support">Support</a>
+    <a href="#AnalyzeNow">Analyze Now </a>
+</div>
 <h2>LOGIN</h2>
 
 <!-- Email Submission -->
@@ -13,6 +18,7 @@
     <label for="email">Enter Email:</label>
     <input type="email" id="email" name="email" required>
     <button type="submit">Generate OTP</button>
+    <a href="/accounts/new-user-form">Create an account</a>
 </form>
 
 <!-- OTP Submission -->
@@ -21,12 +27,13 @@
         <label for="otp">Enter OTP:</label>
         <input type="text" id="otp" name="otp" required>
         <button type="submit">Verify OTP</button>
+
     </form>
+
 </div>
 
 <p th:if="${error}" th:text="${error}" style="color: red;"></p>
 </body>
 
-<a href="/accounts/new-user-form">Create an account</a>
 
 </html>

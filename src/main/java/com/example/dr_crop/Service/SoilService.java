@@ -14,8 +14,10 @@ public class SoilService {
     private final RestTemplate restTemplate = new RestTemplate();
 
     public SoilResult getSoilResult(SoilRequest soilRequest){
-//        String url = "http://localhost:9091/api/recommend";
-        String url = "http://localhost:9091/soil";
+        // String url = "http://localhost:9091/soil";
+        System.out.println("getSoilResult() 1");
+        String url = "http://localhost:5000/soil";
+        System.out.println("getSoilResult() 2");
 
         SoilRequest body = soilRequest;
 
@@ -23,8 +25,11 @@ public class SoilService {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<SoilRequest> requestEntity = new HttpEntity<>(body, headers);
+        System.out.println("getSoilResult() 3");
 
         ResponseEntity<SoilResult> response = restTemplate.exchange(url, HttpMethod.POST, requestEntity, SoilResult.class);
+        System.out.println("getSoilResult() 4");
+        System.out.println(response.getBody().getCrop());
         return response.getBody();
     }
 }

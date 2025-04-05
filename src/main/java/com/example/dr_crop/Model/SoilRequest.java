@@ -1,11 +1,15 @@
 package com.example.dr_crop.Model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class SoilRequest {
     private float n;
     private float p;
     private float k;
     private float temp;
     private float humidity;
+
+    @JsonProperty("pH")
     private float pH;
     private float rainfall;
 

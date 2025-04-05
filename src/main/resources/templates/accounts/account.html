@@ -4,17 +4,23 @@
 <head>
     <title>DR CROP</title>
 </head>
+<link rel="stylesheet" th:href="@{/css/Account.css}">
 
 <body>
+<div class="topnav">
+    <img th:src="@{/images/logo.png}">
+    <a href="#Support">Support</a>
+    <a href="#AnalyzeNow">Analyze Now </a>
+</div>
 <h2>USER DETAILS</h2>
 
-<div>
+<div class="card">
     <div>User Name : <span th:text="${name}"></span></div>
     <div>Email : <span th:text="${email}"></span></div>
     <div>Phone No. : <span th:text="${phone}"></span></div>
     <br>
     <form action="/accounts/log-out" method="get">
-        <button type = "submit">LOG OUT</button>
+        <button type = "submit" class="logout-btn">LOG OUT</button>
     </form>
     <br>
     <div>Reference Id : <span th:text="${id}"></span></div>
@@ -23,11 +29,11 @@
 
     <form action="/accounts/delete-account" method="post">
         <input type="hidden" id="email" name="email" th:value="${email}"  required>
-        <button type = "submit">Delete Account</button>
+        <button type = "submit" class="delete-btn">Delete Account</button>
     </form>
 
     <br>
-    <a href="www.google.com">User Support</a>
+    <a href="www.google.com">Need Help? User Support</a>
 </div>
 </body>
 

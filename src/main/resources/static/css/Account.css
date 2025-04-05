@@ -1,0 +1,97 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #E8FFE3;
+    color: #333;
+    margin: 0;
+    padding: 0px;
+}
+.topnav {
+    background-color: #506959;
+    overflow: hidden;
+    display:flex;
+    align-items: center;
+    padding: 10px;
+}
+.topnav img:first-child {
+    height: 75px;
+    margin-right: auto;
+}
+.topnav img:last-child{
+    height: 75px;
+}
+.topnav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+.topnav a:hover {
+    background-color: rgb(227, 236, 228);
+    color: #4E6B40;
+    border: 1px solid #4E6B40;
+}
+h2 {
+    color: black;
+    margin-top: 20px;
+    margin-left: 600px;
+}
+
+.card {
+    background: white;
+    width: 40%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #4b8b3b;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: large;
+}
+
+.account-info {
+    text-align: left;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+form {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.logout-btn {
+    background-color: rgb(226, 217, 217); 
+    color: black;
+    padding : 10px 15px;
+    border : none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 40%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.logout-btn:hover{
+    background-color: #4b8b3b;
+}
+
+
+.delete-btn {
+    background-color: white; 
+    color: red;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 40%;
+    text-align: center;
+    border: white;
+}
+
+.delete-btn:hover {
+    text-decoration: underline; /* Light red background on hover */
+}
+

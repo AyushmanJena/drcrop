@@ -4,8 +4,14 @@
 <head>
     <title>DR CROP</title>
 </head>
+<link rel="stylesheet" th:href="@{/css/NewUserForm.css}">
 
 <body>
+<div class="topnav">
+    <img th:src="@{/images/logo.png}">
+    <a href="#Support">Support</a>
+    <a href="#AnalyzeNow">Analyze Now </a>
+</div>
 <h2>Create new Account</h2>
 
 <form action="/accounts/new-user-form" method="post">
@@ -22,11 +28,10 @@
     <input type="text" id="lname" name="lname" required>
     <br>
     <label for="phone">Phone Number : </label>
-    <input type="number" id="phone" name="phone">
-
-    <br>
+    <input type="number" id="phone" name="phone" min="1000000000" max="9999999999" required>
+    <br><br>
     <button type="submit">Create Account</button>
 </form>
-</body>
 
+</body>
 </html>

@@ -1,0 +1,89 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #E8FFE3;
+    color: #333;
+    margin: 0;
+    padding: 0px;
+}
+.topnav {
+    background-color: #506959;
+    overflow: hidden;
+    display:flex;
+    align-items: center;
+    padding: 10px;
+}
+.topnav img:first-child {
+    height: 75px;
+    margin-right: auto;
+}
+.topnav img:last-child{
+    height: 75px;
+}
+.topnav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+.topnav a:hover {
+    background-color: rgb(227, 236, 228);
+    color: #4E6B40;
+    border: 1px solid #4E6B40;
+}
+h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #2c6f2c;
+}
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #2c6f2c;
+    border-radius: 10px;
+    background-color: white;
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+input[type="email"],
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #2b9e3a;
+    border-radius: 10px;
+}
+button {
+    background-color: #2c6f2c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 400px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 40%;
+}
+
+button:hover {
+    background-color: #245624;
+}
+p {
+    text-align: center;
+    color: red;
+}
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #2c6f2c;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,110 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #E8FFE3;
+    color: #333;
+    margin: 0;
+    padding: 0px;
+}
+
+.topnav {
+    background-color: #506959;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.topnav img:first-child {
+    height: 75px;
+    margin-right: auto;
+}
+
+.topnav img:last-child {
+    height: 75px;
+}
+
+.topnav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.topnav a:hover {
+    background-color: rgb(227, 236, 228);
+    color: #4E6B40;
+    border: 1px solid #4E6B40;
+}
+
+.card {
+    background: white;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #4b8b3b;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: large;
+    overflow: hidden;
+
+
+}
+
+h2 {
+    padding: 20px;
+    text-align: center;
+}
+
+.input-field {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    background-color: #E8FFE3;
+    border: 1px solid #0B6700;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input-field::placeholder {
+    color: #E8FFE3;
+    font-style: italic;
+}
+
+.input-field:hover {
+    border-color: #888;
+}
+
+.input-field:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+button {
+    background-color: #2c6f2c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 400px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 20%;
+}
+
+button:hover {
+    background-color: #245624;
+}
+
+.video-container {
+
+    width: 90%;
+    margin-left: 5px;
+    padding: 10px;
+    display: flex;
+}

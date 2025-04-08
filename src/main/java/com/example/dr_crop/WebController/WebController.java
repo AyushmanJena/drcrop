@@ -1,6 +1,7 @@
 package com.example.dr_crop.WebController;
 
 import com.example.dr_crop.Model.ConditionResult;
+import com.example.dr_crop.Model.DiseaseMedicine;
 import com.example.dr_crop.Model.SoilRequest;
 import com.example.dr_crop.Model.SoilResult;
 import com.example.dr_crop.Service.ConditionService;
@@ -22,6 +23,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/web")
@@ -218,5 +221,19 @@ public class WebController {
 
         model.addAttribute("error", "Failed to get recommendation");
         return "crop-recommendation-form";
+    }
+
+    // Store Page
+    @GetMapping("/store/{diseaseName}")
+    public String getStorePage(@PathVariable String diseaseName, Model model){
+        List<DiseaseMedicine.Medicine> medicines = new ArrayList<>();
+        if(diseaseName.compareTo("all") == 0){
+            medicines= conditionService.getAllMedicines();
+
+        }else{
+            medicines =conditionService.getMedicinesFromDiseaseName(diseaseName);
+        }
+        model.addAttribute("medicines", medicines);
+        return "store";
     }
 }

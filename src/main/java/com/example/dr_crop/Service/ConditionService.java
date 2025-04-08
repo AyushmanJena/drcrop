@@ -2,6 +2,8 @@ package com.example.dr_crop.Service;
 
 import com.example.dr_crop.Model.ConditionRequest;
 import com.example.dr_crop.Model.ConditionResult;
+import com.example.dr_crop.Model.DiseaseMedicine;
+import com.example.dr_crop.repository.MedicineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -14,26 +16,24 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Base64;
-import java.util.Map;
+import java.util.*;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.List;
 
 @Service
 public class ConditionService {
     private final RestTemplate restTemplate = new RestTemplate();
+
+    @Autowired
+    private MedicineRepository medicineRepository;
 
     final String UPLOADED_FOLDER = "D:/DR-CROP/dr-crop/input-storage/";
 
@@ -144,5 +144,21 @@ public class ConditionService {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    // Medicine Store page methods
+    public List<DiseaseMedicine.Medicine> getAllMedicines(){
+        List<DiseaseMedicine> diseases = medicineRepository.findAll();
+        ArrayList<DiseaseMedicine.Medicine> medicines = new ArrayList<>();
+        for(DiseaseMedicine d:  diseases){
+            medicines.addAll(d.getMedicinesList());
+        }
+        return medicines;
+    }
+
+    public List<DiseaseMedicine.Medicine> getMedicinesFromDiseaseName(String diseaseName){
+        Optional<DiseaseMedicine> disease = medicineRepository.findByDiseaseName(diseaseName);
+        List<DiseaseMedicine.Medicine> medicines = disease.get().getMedicinesList();
+        return medicines;
     }
 }

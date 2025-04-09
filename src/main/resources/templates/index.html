@@ -1,13 +1,72 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Dr Crop</title>
-</head>
-<body>
-    Dr Crop
-    <br>
-    <a href="/web/login">LOGIN</a>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr.Crop</title>
+    <link id="favicon" rel="icon" type="image/png" th:href="@{images/logo.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body class="index-body">
+<div id="bg">
+</div>
+<nav id="navbar" class="index-navbar">
+    <div class="index-navbar-container">
+        <div class="index-navbar-content">
+            <div class="index-nav-links">
+                <a href="#" class="nav-a">STORE</a>
+            </div>
+            <a href="/web/login"><button class="index-login-btn">LOGIN</button></a>
+            <div class="index-nav-links">
+                <a href="#" class="nav-a">ABOUT US</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<img th:src="@{/images/homepage-plant.png}" alt="Top Right Image" class="index-top-right-image">
+
+<div id="index-page1">
+    <div class="index-hero">
+        <h1 class="index-h1"><span id="index-dr">DR.</span>
+            <span class="index-crop-container">
+                    <span class="index-crop-outline">CROP</span>
+                    <span class="index-crop-fill">CROP</span>
+                </span>
+        </h1>
+        <div id="index-hero">
+            <H2 class="index-h2">AI-Powered Farming for a Healthier Tomorrow .</H2>
+        </div>
+        <div id="index-p">
+            <p>Unlock the full potential of your farm with cutting-edge AI. Analyze soil, detect plant diseases, and
+                get expert-backed crop recommendations—all in one place. Smarter farming starts here.</p>
+            <!-- <button class="button" id="getstarted">Get Started</button> -->
+        </div>
+
+        <div>
+            <a style="--clr: #000" class="index-btn-3" href="/web/homepage">
+                    <span class="button__icon-wrapper">
+                        <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 14 15">
+                            <path fill="currentColor"
+                                  d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z">
+                            </path>
+                        </svg>
+
+                        <svg class="button__icon-svg button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg"
+                             width="10" fill="none" viewBox="0 0 14 15">
+                            <path fill="currentColor"
+                                  d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z">
+                            </path>
+                        </svg>
+                    </span>
+                Get Started
+            </a>
+
+        </div>
+
+    </div>
     <p th:if="${message}" th:text="${message}"></p>
 </body>
 </html>

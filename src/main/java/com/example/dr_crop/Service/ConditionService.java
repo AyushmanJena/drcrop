@@ -45,7 +45,7 @@ public class ConditionService {
         try{
             byte[] bytes = file.getBytes();
             String generatedId = userId + "img";
-            Path path = Paths.get(UPLOADED_FOLDER + generatedId + ".png");
+            Path path = Paths.get(UPLOADED_FOLDER + generatedId + ".jpg");
             Files.write(path, bytes);
 
             redirectAttributes.addFlashAttribute("message", "you successfully uploaded '"+ generatedId+ "'");
@@ -58,7 +58,7 @@ public class ConditionService {
 
     public ConditionResult sendImageToMLLayer(String id, String cropName) {
         try {
-            String url = "http://localhost:9091/api/process"; // ML service URL
+            String url = "http://localhost:5000/leaf"; // ML service URL
 
             // Creating JSON request body
             ConditionRequest request = new ConditionRequest(id, cropName);

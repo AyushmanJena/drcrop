@@ -1,0 +1,419 @@
+.index-body {
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    background-image: linear-gradient(to top right, #5c916f, #E1EAD2);
+    min-height: 100vh;
+    /* Ensures the gradient covers the full viewport height */
+    background-attachment: fixed;
+    width: 100%;
+    overflow-x: hidden;
+    /* Keeps the gradient fixed while scrolling */
+
+}
+
+.index-hero {
+    font-family: montserrat;
+}
+
+
+
+.index-navbar {
+    align-items: center;
+    justify-content: center;
+}
+
+.index-navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.index-navbar-content {
+    background-color: #000;
+    height: 30px;
+    width: 35%;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.index-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.index-nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 200;
+}
+
+.index-nav-links a:hover {
+    color: #ccc;
+}
+
+.index-login-btn {
+    background-color: #E1EAD2;
+    font-family: montserrat;
+    color: black;
+    border: 2px solid transparent;
+    /* Invisible border initially */
+    width: 150px;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.index-login-btn:hover {
+    /* background-color: #f0f0f0; */
+    background-color: #000;
+    color: #E1EAD2;
+    border: 2px solid #E1EAD2;
+    /* Visible outline on hover */
+    box-shadow: 0 0 8px rgba(225, 234, 210, 0.785);
+    /* Optional glow effect */
+}
+
+.index-h1 {
+    font-size: 150px;
+    font-weight: 1800;
+    margin-bottom: 10px;
+    margin-top: 80px;
+    margin-left: 30px;
+    user-select:none;
+
+}
+
+#index-dr {
+    color: black;
+}
+
+#index-crop {
+    color: #E1EAD2;
+    white-space: nowrap;
+    -webkit-text-stroke: 2px black;
+    margin-left: 5px;
+}
+
+.index-crop-container {
+    position: relative;
+    margin-left: 5px;
+}
+
+.index-crop-outline {
+    position: absolute;
+    left: 0;
+    color: black;
+    z-index: 1;
+    -webkit-text-stroke: 6px black;
+
+}
+
+.index-crop-fill {
+    position: relative;
+    color: #E1EAD2;
+    z-index: 2;
+}
+
+
+#index-hero {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: left;
+    margin-bottom: 0px;
+    padding-left: 10px;
+}
+
+.index-h2 {
+    font-size: 45px;
+    margin-top: 0px;
+    margin-left: 30px;
+    text-align: left;
+    font-weight: 700;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+#index-p p {
+    font-size: 22px;
+    text-align: left;
+    font-weight: 500;
+    width: 80%;
+    margin-top: 0%;
+}
+
+#index-p {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 30px;
+    margin-top: 15px;
+    padding-left: 10px;
+    margin-bottom: 0px;
+
+}
+
+/* Get started button Do not touch*/
+
+.index-btn-3:hover {
+    background-color: #E1EAD2;
+    transform: scale(1);
+}
+
+.index-btn-3 {
+    scale: 1;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--clr);
+    color: #fff;
+    border-radius: 10rem;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 12px 24px 12px 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.3s;
+    margin-top: 0px;
+    margin-left: 30px;
+}
+
+.index-btn-3 .button__icon-wrapper {
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    color: var(--clr);
+    background-color: #E1EAD2;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.index-btn-3:hover {
+    background-color: #E1EAD2;
+    color: black;
+}
+
+.index-btn-3:hover .button__icon-wrapper {
+    color: #E1EAD2;
+    background-color: black;
+
+}
+
+.index-btn-3 .button__icon-svg--copy {
+    position: absolute;
+    transform: translate(-150%, 150%);
+}
+
+.index-btn-3:hover .button__icon-svg:first-child {
+    transition: transform 0.3s ease-in-out;
+    transform: translate(150%, -150%);
+}
+
+.index-btn-3:hover .button__icon-svg--copy {
+    transition: transform 0.3s ease-in-out 0.1s;
+    transform: translate(0);
+}
+
+.index-top-right-image {
+    position: absolute;
+    top: -10px;
+    /* Adjust vertical position */
+    right: 0px;
+    /* Adjust horizontal position */
+    height: 400px;
+    width: auto;
+    z-index: 1000;
+    /* Ensures it stays above other elements */
+}
+
+
+/* For Disease Detection page */
+
+.disease-detection-body {
+    background-color: #E1EAD2;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: montserrat;
+}
+
+.disease-detection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #506959;
+    padding: 15px 30px;
+    color: white;
+}
+
+.disease-detection-logo {
+    display: flex;
+    align-items: center;
+}
+
+.disease-detection-logo img {
+    width: 100px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.disease-detection-nav {
+    display: flex;
+    align-items: center;
+}
+
+.disease-detection-nav-link {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.disease-detection-analyze-btn {
+    background-color: white;
+    color: #4b6043;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.disease-detection-user-icon {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.disease-detection-container {
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.disease-detection-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+
+.disease-detection-detection-box {
+    border: 2px solid #0B6700;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    min-height: 50vh;
+    background-color: #FDFFFA;
+}
+
+.disease-detection-upload-section {
+    width: 55%;
+}
+
+.disease-detection-upload-box {
+    background-color: #E8FFE3;
+    border: 2px solid #0B6700;
+    padding: 20px;
+    border-radius: 8px;
+    width: auto;
+    height: 50%;
+    margin-bottom: 20px;
+}
+
+.disease-detection-upload-title {
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+/* #browse-btn {
+    background-color: white;
+    border: 1px solid #0B6700;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+}  */
+
+.disease-detection-browse-button {
+    display: none;
+}
+
+.disease-detection-custom-browse {
+    background-color: white;
+    color: wblackhite;
+    padding: 10px 15px;
+    border: 1px solid #0B6700;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 400;
+    display: inline-block;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.disease-detection-crop-select {
+    width: 100%;
+    height: 12%;
+    padding: 10px;
+    border: 2px solid #0B6700;
+    border-radius: 10px;
+    background-color: #E8FFE3;
+    margin-bottom: 20px;
+    color: black;
+    font-family: montserrat;
+    font-size: 18px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 15px;
+}
+
+.disease-detection-upload-submit {
+    background-color: #0B6700;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    width: 20%;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: montserrat;
+    cursor: pointer;
+}
+
+.disease-detection-preview-section {
+    width: 42%;
+}
+
+.disease-detection-preview-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.disease-detection-instructions {
+    margin-top: 30px;
+    color: #555;
+    line-height: 1.5;
+}

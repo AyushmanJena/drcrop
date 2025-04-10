@@ -4,30 +4,42 @@
 <head>
     <title>DR CROP</title>
 </head>
+<link rel="stylesheet" href="style.css">
 
-<body>
-<h2>USER DETAILS</h2>
+<body class="account-body">
+    <div class="account-header">
+        <div class="account-logo">
+            <img src="images/dr-crop-logo--white.png" alt="Dr.Crop Logo">
 
-<div>
+        </div>
+        <div class="account-nav">
+            <a href="#" class="account-nav-link">Support</a>
+            <button class="account-analyze-btn">Analyze Now</button>
+            <!-- <div class="account-user-icon"></div> -->
+        </div>
+    </div>
+<h2 class="account-h2">USER DETAILS</h2>
+
+<div class="account-card">
     <div>User Name : <span th:text="${name}"></span></div>
     <div>Email : <span th:text="${email}"></span></div>
     <div>Phone No. : <span th:text="${phone}"></span></div>
     <br>
-    <form action="/accounts/log-out" method="get">
-        <button type = "submit">LOG OUT</button>
+    <form action="/accounts/log-out" method="get" class="account-form">
+        <button type = "submit" class="account-logout-btn">LOG OUT</button>
     </form>
     <br>
     <div>Reference Id : <span th:text="${id}"></span></div>
     <br>
     <br>
 
-    <form action="/accounts/delete-account" method="post">
+    <form action="/accounts/delete-account" method="post" class="account-form">
         <input type="hidden" id="email" name="email" th:value="${email}"  required>
-        <button type = "submit">Delete Account</button>
+        <button type = "submit" class="account-delete-btn">Delete Account</button>
     </form>
 
     <br>
-    <a href="www.google.com">User Support</a>
+    <a href="www.google.com">Need Help? User Support</a>
 </div>
 </body>
 

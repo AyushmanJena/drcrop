@@ -1,13 +1,49 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
 <head>
-    <title>Condition Result</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr.Crop - Agricultural Disease Analysis</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<h2>Diagnosis Result</h2>
-<p><strong>Plant Name:</strong> <span th:text="${conditionResult.plantName}"></span></p>
-<p><strong>Condition:</strong> <span th:text="${conditionResult.conditionName}"></span></p>
-<p><strong>Accuracy:</strong> <span th:text="${conditionResult.accuracy}"></span></p>
-<a href="/web/downloadfile">Download Report</a>
+
+<body class="condition-result-body">
+    <div class="condition-result-header">
+        <div class="condition-result-logo">
+            <img src="images/dr-crop-logo--white.png" alt="Dr.Crop Logo">
+
+        </div>
+        <div class="condition-result-nav">
+            <a href="#" class="condition-result-nav-link">Support</a>
+            <button class="condition-result-analyze-btn">Analyze Now</button>
+            <div class="homepage-user-icon"><a href="account.html"><img src="images/applescab-leaf.jpg" alt=""></a></div>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <div id="loader" class="loader"></div>
+        <div id="analysisCard" class="analysis-card">
+            <div class="analysis-details">
+                <h1 id="img-result-heading">DIAGNOSIS RESULT</h1><br><br>
+                <div id="condition-result-details">
+                    <p><strong>Plant Name:</strong> <span th:text="${conditionResult.plantName}"></span></p><br><br>
+                    <p><strong>Condition:</strong> <span th:text="${conditionResult.conditionName}"></span></p><br><br>
+                    <p><strong>Accuracy:</strong> <span th:text="${conditionResult.accuracy}"></span></p><br><br>
+
+                </div>
+                <div>
+                    <span><button  class="download-btn">Download Report</button></span>
+                    <a href="#"><span><button  class="download-btn">Medication</button></span></a>
+                </div>
+            </div>
+
+            <div class="analysis-image">
+                <img id="diseaseImage" src="images/ararat-valley-view-from-armenia.jpg" alt="Disease Image">
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>

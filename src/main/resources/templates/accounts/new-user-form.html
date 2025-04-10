@@ -4,29 +4,38 @@
 <head>
     <title>DR CROP</title>
 </head>
+<link rel="stylesheet" href="style.css">
 
-<body>
-<h2>Create new Account</h2>
+<body class="new-user-form-body">
+    <div class="new-user-form-header">
+        <div class="new-user-form-logo">
+            <img src="images/dr-crop-logo--white.png" alt="Dr.Crop Logo">
 
-<form action="/accounts/new-user-form" method="post">
-    <label for="email">Email : </label>
-    <input type="email" id="email" name="email" required>
-    <br>
-    <label for="fname">First Name : </label>
-    <input type="text" id="fname" name="fname" required>
-    <br>
-    <label for="mname">Middle Name : </label>
-    <input type="text" id="mname" name="mname">
-    <br>
-    <label for="lname">Last Name : </label>
-    <input type="text" id="lname" name="lname" required>
-    <br>
-    <label for="phone">Phone Number : </label>
-    <input type="number" id="phone" name="phone">
+        </div>
+        <div class="new-user-form-nav">
+            <a href="#" class="new-user-form-nav-link">Support</a>
+        </div>
+    </div>
+<h2 class="new-user-form-h2">Create new Account</h2>
 
+<form action="/accounts/new-user-form" method="post" class="new-user-form-form">
+    <label for="email" class="new-user-form-label">Email : </label>
+    <input type="email" id="email" class="new-user-form-input" name="email" required>
     <br>
-    <button type="submit">Create Account</button>
+    <label for="fname" class="new-user-form-label">First Name : </label>
+    <input type="text" id="fname" class="new-user-form-input" name="fname" required>
+    <br>
+    <label for="mname" class="new-user-form-label">Middle Name : </label>
+    <input type="text" id="mname" class="new-user-form-input" name="mname">
+    <br>
+    <label for="lname" class="new-user-form-label">Last Name : </label>
+    <input type="text" id="lname" class="new-user-form-input" name="lname" required>
+    <br>
+    <label for="phone" class="new-user-form-label">Phone Number : </label>
+    <input type="number" id="phone" class="new-user-form-input" name="phone" min="1000000000" max="9999999999" required>
+    <br><br>
+    <button type="submit" class="new-user-form-button">Create Account</button>
 </form>
-</body>
 
+</body>
 </html>

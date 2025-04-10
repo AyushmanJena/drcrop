@@ -12,7 +12,7 @@
     <div class="topnav">
         <img th:src="@{/images/logo.png}">
         <a href="#Support">Support</a>
-        <a href="#AnalyzeNow">Analyze Now </a>
+        <a href="#AnalyzeNow">Home</a>
         <a href="/accounts/account-user"><img th:src="@{/images/logo.jpg}"></a>
 
     </div>
@@ -22,7 +22,7 @@
         <table style="border-spacing: 20px;">
             <tr>
                 <th><label>Nitrogen : </label></th>
-                <td><input type="number" step="0.01" name="nitrogen" required class="input-field"></td>
+                <td><input type="number" step="0.01" name="nitrogen" required class="input-field" placeholder="in Kg/Ha"></td>
                 <td rowspan="7">
                     <div class="video-container">
                         <video width="100%" autoplay loop>
@@ -35,27 +35,27 @@
 
             <tr>
                 <th><label>Phosphorus : </label></th>
-                <td><input type="number" step="0.01" name="phosphorus" required class="input-field"></td>
+                <td><input type="number" step="0.01" name="phosphorus" required class="input-field" placeholder="in Kg/Ha"></td>
             </tr>
             <tr>
                 <th><label>Potassium : </label></th>
-                <td><input type="number" step="0.01" name="potassium" required class="input-field"></td>
+                <td><input type="number" step="0.01" name="potassium" required class="input-field" placeholder="in Kg/Ha"></td>
             </tr>
             <tr>
                 <th><label>Temperature : </label></th>
-                <td><input type="number" step="0.01" name="temperature" required class="input-field"></td>
+                <td><input type="number" step="0.01" name="temperature" required class="input-field" placeholder="in ℃"></td>
             </tr>
             <tr>
                 <th><label>Humidity : </label></th>
-                <td><input type="number" step="0.01" name="humidity" required class="input-field"></td>
+                <td><input type="number" step="0.01" name="humidity" required class="input-field" placeholder="in Percentage"></td>
             </tr>
             <tr>
                 <th><label>pH : </label></th>
-                <td><input type="number" step="0.01" name="pH" required class="input-field"></td>
+                <td><input type="number" step="0.01" name="pH" required class="input-field" placeholder="Between 1-14"></td>
             </tr>
             <tr>
                 <th><label>Rainfall : </label></th>
-                <td><input type="number" step="0.01" name="rainfall" required class="input-field"></td>
+                <td><input type="number" step="0.01" name="rainfall" required class="input-field" placeholder="in mm"></td>
             </tr>
 
         </table>

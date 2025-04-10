@@ -1,25 +1,66 @@
 <!DOCTYPE html>
+<html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Upload Image</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr.Crop - Crop Disease Detection</title>
+    <link id="favicon" rel="icon" type="image/png" href="images/dr-crop-logo--white.png">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
-<h2>Upload Plant Image</h2>
-<form action="/web/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" required>
-    <br>
-    <label for="crop">Choose Crop:</label>
-    <select id="crop" name="crop">
-        <option value="rice">Rice</option>
-        <option value="wheat">Wheat</option>
-        <option value="apple">Apple</option>
-        <option value="sugarcane">Sugarcane</option>
-        <option value="tomato">Tomato</option>
-    </select>
-    <br>
-    <br>
-    <button type="submit">Upload</button>
-</form>
+
+<body id="crop-disease" class="disease-detection-body">
+<div class="disease-detection-header">
+    <div class="disease-detection-logo">
+        <img th:src="@{/images/logo.png}">
+
+    </div>
+    <div class="disease-detection-nav">
+        <a href="#" class="disease-detection-nav-link">Support</a>
+        <button class="disease-detection-analyze-btn">Home</button>
+        <div class="disease-detection-user-icon"></div>
+    </div>
+</div>
+
+<div class="disease-detection-container">
+    <h2 class="title">Crop Disease Detection</h2>
+
+    <div class="disease-detection-detection-box">
+        <form action="/web/upload" method="post" enctype="multipart/form-data">
+            <div class="disease-detection-upload-section">
+                <div class="disease-detection-upload-box">
+                    <p class="disease-detection-upload-title">Upload the leaf image</p>
+                    <br>
+                    <input type="file" id="browse-button" name="file" class="disease-detection-browse-button"
+                           value="Browse Files" required>
+                    <label for="browse-button" class="disease-detection-custom-browse">Browse Files</label>
+                </div>
+
+                <select  id="crop" name="crop" class="disease-detection-crop-select">
+                    <option value="" disabled selected>Select Crop</option>
+                    <option value="rice">Rice</option>
+                    <option value="wheat">Wheat</option>
+                    <option value="apple">Apple</option>
+                    <option value="sugarcane">Sugarcane</option>
+                    <option value="tomato">Tomato</option>
+                </select>
+                <button  class="disease-detection-upload-submit" type="submit">Upload</button>
+            </div>
+        </form>
+
+
+        <div class="disease-detection-preview-section">
+            <img src="images/high-angle-selective-focus-shot-green-leaves-with-blurred.jpg" alt="Preview"
+                 class="disease-detection-preview-image">
+        </div>
+    </div>
+
+    <div class="disease-detection-instructions">
+        <p>Upload the image of the affected leaf and let our powerful AI do some magic on it and detect the
+            condition of the leaf and cure for them.</p>
+    </div>
+</div>
 <p th:if="${error}" th:text="${error}" style="color:red;"></p>
 </body>
+
 </html>

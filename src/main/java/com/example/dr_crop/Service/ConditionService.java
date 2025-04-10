@@ -4,6 +4,8 @@ import com.example.dr_crop.Model.ConditionRequest;
 import com.example.dr_crop.Model.ConditionResult;
 import com.example.dr_crop.Model.DiseaseMedicine;
 import com.example.dr_crop.repository.MedicineRepository;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -31,6 +33,8 @@ import java.util.List;
 @Service
 public class ConditionService {
     private final RestTemplate restTemplate = new RestTemplate();
+
+
 
     @Autowired
     private MedicineRepository medicineRepository;
@@ -107,7 +111,7 @@ public class ConditionService {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         Document document = new Document();
 
-        try{
+        try {
             PdfWriter.getInstance(document, out);
             document.open();
 
@@ -116,35 +120,72 @@ public class ConditionService {
             titlePara.setAlignment(Element.ALIGN_CENTER);
             document.add(titlePara);
 
-            Font paraFont = FontFactory.getFont(FontFactory.HELVETICA, 16);
-            Paragraph paragraph1 = new Paragraph("\nPlant Name : " + conditionResult.plantName, paraFont);
-            Paragraph paragraph2 = new Paragraph("\nCondition : " + conditionResult.conditionName, paraFont);
-            Paragraph paragraph3 = new Paragraph("\nAccuracy : " + conditionResult.accuracy, paraFont);
+            // Create a table with 2 columns: left for text, right for image
+            PdfPTable table = new PdfPTable(2);
+            table.setWidthPercentage(100); // Occupy full page width
+            table.setSpacingBefore(20f);
 
-            // to add content during runtime
-            // paragraph1.add(new Chunk("\nPlant Name : " + paragraph1));
-            document.add(paragraph1);
-            //paragraph2.add(new Chunk("\nCondition : " + paragraph2));
-            document.add(paragraph2);
-            document.add(paragraph3);
+            // LEFT CELL - Text paragraphs
+            Font paraFont = FontFactory.getFont(FontFactory.HELVETICA, 14);
+            Paragraph paragraph1 = new Paragraph("Plant Name : " + conditionResult.plantName, paraFont);
+            Paragraph paragraph2 = new Paragraph("Condition  : " + conditionResult.conditionName, paraFont);
+            Paragraph paragraph3 = new Paragraph("Accuracy   : " + conditionResult.accuracy, paraFont);
+
+            Paragraph textPara = new Paragraph();
+            textPara.add(paragraph1);
+            textPara.add(Chunk.NEWLINE);
+            textPara.add(paragraph2);
+            textPara.add(Chunk.NEWLINE);
+            textPara.add(paragraph3);
+
+            PdfPCell textCell = new PdfPCell(textPara);
+            textCell.setBorder(Rectangle.NO_BORDER);
+            textCell.setVerticalAlignment(Element.ALIGN_TOP);
+            table.addCell(textCell);
+
+            // RIGHT CELL - Image
+            String imagePath = "D:/DR-CROP/dr-crop/input-storage/" + filetemp + ".jpg";
+            try {
+                Image img = Image.getInstance(imagePath);
+                img.scaleToFit(250, 200);
+                PdfPCell imageCell = new PdfPCell(img, true);
+                imageCell.setBorder(Rectangle.NO_BORDER);
+                imageCell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+                table.addCell(imageCell);
+            } catch (Exception e) {
+                System.err.println("Failed to load image: " + imagePath);
+                e.printStackTrace();
+
+                // Add an empty cell if image not found
+                PdfPCell emptyCell = new PdfPCell(new Phrase("Image not available"));
+                emptyCell.setBorder(Rectangle.NO_BORDER);
+                emptyCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(emptyCell);
+            }
+
+            // Add table to the document
+            document.add(table);
 
             document.close();
 
-            // to save the pdf
-            String fileName = filetemp+".pdf";
+            // Save the PDF to local repo
+            String fileName = filetemp + ".pdf";
             String directoryPath = "D:/DR-CROP/dr-crop/output-storage/";
             File file = new File(directoryPath + fileName);
 
             file.getParentFile().mkdirs();
-            System.out.println("Successfuly saved pdf file to local repo!!!");
+            System.out.println("Successfully saved PDF file to local repo!");
 
-            try(FileOutputStream fileOut = new FileOutputStream(file)){
+            try (FileOutputStream fileOut = new FileOutputStream(file)) {
                 fileOut.write(out.toByteArray());
             }
-        }catch (Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
 
     // Medicine Store page methods
     public List<DiseaseMedicine.Medicine> getAllMedicines(){

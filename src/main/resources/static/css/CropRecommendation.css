@@ -72,8 +72,8 @@ h2 {
     box-sizing: border-box;
 }
 
-.input-field::placeholder {
-    color: #E8FFE3;
+.input-field:placeholder {
+    color: black;
     font-style: italic;
 }
 

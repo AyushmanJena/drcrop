@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Dr Crop Condition</title>
 </head>
+<link rel="stylesheet"  th:href="@{/css/SoilResult.css}">
+
 <body>
+<div class="topnav">
+    <img th:src="@{/images/logo.png}">
+    <a href="#Support">Support</a>
+    <a href="#AnalyzeNow">Analyze Now </a>
+    <a href="/accounts/account-user"><img th:src="@{/images/profile-icon.png}"></a>
+</div>
 
-CROP RECOMMENDATION :
-<span th:text="${crop}"></span>
-<br>
-<br>
-Description :
-<span th:text="${suggestion}"></span>
+<h1>CROP RECOMMENDATION :</h1>
+<div class="card">
+    <div>
+        <h2>Recommended Crop:</h2>
+        <h3><span th:text="${crop}"></span></h3>
+        <br>
+        <br>
+        <p>Why?</p>
+        <p><span th:text="${suggestion}"></span></p>
 
+    </div>
+    <div class="card-img">
+        <!-- <img src="crop field.jpg" alt=""> -->
+    </div>
+</div>
 </body>
+
 </html>

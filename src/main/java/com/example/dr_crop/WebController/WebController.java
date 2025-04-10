@@ -151,6 +151,9 @@ public class WebController {
                 conditionService.convertConditionResultToPdf(conditionResult, fileName);
                 model.addAttribute("conditionResult", conditionResult);
                 System.out.println("upload : " + 4);
+                String conditionUrl = "/web/store/" + "all";//+conditionResult.conditionName;
+                model.addAttribute("diseaseMedicine", conditionUrl);
+                //model.addAttribute("imageUrl", inputStoragePath+"/"+fileName+ ".jpg");
                 return "result";
             }
         }
@@ -235,5 +238,11 @@ public class WebController {
         }
         model.addAttribute("medicines", medicines);
         return "store";
+    }
+
+    // About us
+    @GetMapping("/aboutUs")
+    public String aboutUs(){
+        return "about-us";
     }
 }

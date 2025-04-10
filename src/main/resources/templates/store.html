@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Dr Crop Condition</title>
 </head>
+<link rel="stylesheet"  th:href="@{/css/Store.css}">
 <body>
+<div class="topnav">
+    <img th:src="@{/images/logo.png}">
+    <a href="#Support">Support</a>
+    <a href="#AnalyzeNow">Analyze Now </a>
+    <a href="/accounts/account-user"><img th:src="@{/images/profile-icon.png}"></a>
+</div>
 
 <div th:each="medicine : ${medicines}">
     <div>
-        <img th:src="${medicine.imageUrl}" alt="medicine img" width="120" height="160" style="margin-right: 20px; border-radius: 8px;">
+        <img th:src="${medicine.imageUrl}" alt="medicine img" width="120" height="160"
+             style="margin-right: 20px; border-radius: 8px;">
         <div>
             <h2 th:text="${medicine.medicineName}">Medicine Name</h2>
-            <a th:href="${medicine.buyLink}">LINK</a>
+            <a th:href="${medicine.buyLink}">BUY NOW</a>
         </div>
     </div>
 </div>
 </body>
+
 </html>

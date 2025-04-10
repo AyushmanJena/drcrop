@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Condition Result</title>
+    <title>Dr.Crop - Agricultural Disease Analysis</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
-<h2>Diagnosis Result</h2>
-<p><strong>Plant Name:</strong> <span th:text="${conditionResult.plantName}"></span></p>
-<p><strong>Condition:</strong> <span th:text="${conditionResult.conditionName}"></span></p>
-<p><strong>Accuracy:</strong> <span th:text="${conditionResult.accuracy}"></span></p>
-<a href="/web/downloadfile">Download Report</a>
+
+<body class="condition-result-body">
+<div class="condition-result-header">
+    <div class="condition-result-logo">
+        <img th:src="@{/images/logo.png}">
+
+    </div>
+    <div class="condition-result-nav">
+        <a href="#" class="condition-result-nav-link">Support</a>
+        <button class="condition-result-analyze-btn">Home</button>
+        <a href="/accounts/account-user"><img th:src="@{/images/profile-icon.png}"></a>
+    </div>
+</div>
+
+<div class="content-container">
+    <div id="loader" class="loader"></div>
+    <div id="analysisCard" class="analysis-card">
+        <div class="analysis-details">
+            <h1 id="img-result-heading">DIAGNOSIS RESULT</h1><br><br>
+            <div id="condition-result-details">
+                <p><strong>Plant Name:</strong> <span th:text="${conditionResult.plantName}"></span></p><br><br>
+                <p><strong>Condition:</strong> <span th:text="${conditionResult.conditionName}"></span></p><br><br>
+                <p><strong>Accuracy:</strong> <span th:text="${conditionResult.accuracy}"></span></p><br><br>
+
+            </div>
+<!--            <img th:src="${imageUrl}">-->
+            <div>
+                <a href="/web/downloadfile"><button>Download Report</button></a>
+                <a th:href="${diseaseMedicine}"><button>Medication</button></a>
+            </div>
+        </div>
+
+        <div class="analysis-image">
+        </div>
+    </div>
+</div>
+
 </body>
+
 </html>

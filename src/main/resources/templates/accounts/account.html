@@ -3,18 +3,29 @@
 
 <head>
     <title>DR CROP</title>
+    
+    <link rel="stylesheet" th:href="@{/css/Account.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<link rel="stylesheet" th:href="@{/css/Account.css}">
+
 
 <body>
-<div class="topnav">
-    <img th:src="@{/images/logo.png}">
-    <a href="#Support">Support</a>
-    <a href="#AnalyzeNow">Analyze Now </a>
+
+<div class="homepage-header">
+    <div class="homepage-logo">
+        <img th:src="@{/images/logo.png}">
+        
+    </div>
+    <div class="homepage-nav">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=drcropimca@gmail.com" class="homepage-nav-link" target="_blank">Support</a>
+        <a href="/web/homepage"><button class="homepage-analyze-btn">Home</button></a>
+        <div class="homepage-user-icon"><a href="/accounts/account-user"><img th:src="@{/images/profile-icon.png}" alt=""></a></div>
+    </div>
 </div>
+
 <h2>USER DETAILS</h2>
 
-<div class="card">
+<div class="account-card">
     <div>User Name : <span th:text="${name}"></span></div>
     <div>Email : <span th:text="${email}"></span></div>
     <div>Phone No. : <span th:text="${phone}"></span></div>

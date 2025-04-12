@@ -11,7 +11,7 @@ public class DiseaseMedicine {
     @Id
     private String id;
     private String diseaseName;
-    private ArrayList<Medicine> medicinesList;
+    private ArrayList<Medicine> medicineList;
 
     public static class Medicine{
         String imageUrl;
@@ -50,7 +50,7 @@ public class DiseaseMedicine {
     public DiseaseMedicine(String id, String diseaseName, ArrayList<Medicine> medicinesList) {
         this.id = id;
         this.diseaseName = diseaseName;
-        this.medicinesList = medicinesList;
+        this.medicineList = medicinesList;
     }
 
     public String getId() {
@@ -70,11 +70,11 @@ public class DiseaseMedicine {
     }
 
     public ArrayList<Medicine> getMedicinesList() {
-        return medicinesList;
+        return medicineList;
     }
 
     public void setMedicinesList(ArrayList<Medicine> medicinesList) {
-        this.medicinesList = medicinesList;
+        this.medicineList = medicinesList;
     }
 
 

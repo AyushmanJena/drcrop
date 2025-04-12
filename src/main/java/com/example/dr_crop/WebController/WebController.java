@@ -45,7 +45,8 @@ public class WebController {
     }
 
     @GetMapping("/login")
-    public String showLoginPage() { // initially asks for email only
+    public String showLoginPage(Model model) { // initially asks for email only
+        model.addAttribute("otpSent", false);
         return "login";
     }
 
@@ -53,6 +54,7 @@ public class WebController {
     public String getEmail(@RequestParam String email, Model model, HttpSession session) {
         if (!userService.containsUser(email)) {
             model.addAttribute("error", "Account does not exist");
+            model.addAttribute("otpSent", false);
             return "login";
         }
 
@@ -65,6 +67,7 @@ public class WebController {
         session.setAttribute("email", email);
 
         model.addAttribute("otpSent", true);
+        model.addAttribute("mailId", email);
         return "login";
     }
 
@@ -76,6 +79,7 @@ public class WebController {
         System.out.println(2);
         if (generatedOtp == null) {
             model.addAttribute("error", "Session expired. Please try again.");
+            model.addAttribute("otpSent", false);
             return "login";
         }
         System.out.println(3);
@@ -87,6 +91,7 @@ public class WebController {
 
         if (token == null) {
             model.addAttribute("error", "Invalid OTP");
+            model.addAttribute("otpSent", false);
             return "login";
         }
 
@@ -151,7 +156,8 @@ public class WebController {
                 conditionService.convertConditionResultToPdf(conditionResult, fileName);
                 model.addAttribute("conditionResult", conditionResult);
                 System.out.println("upload : " + 4);
-                String conditionUrl = "/web/store/" + "all";//+conditionResult.conditionName;
+                String diseaseName = conditionService.replaceSpaces(conditionResult.conditionName+"-"+capCropName(conditionResult.plantName));
+                String conditionUrl = "/web/store/" + diseaseName;//+conditionResult.conditionName;
                 model.addAttribute("diseaseMedicine", conditionUrl);
                 //model.addAttribute("imageUrl", inputStoragePath+"/"+fileName+ ".jpg");
                 return "result";
@@ -159,6 +165,10 @@ public class WebController {
         }
         model.addAttribute("error", "File upload failed");
         return "upload";
+    }
+
+    public String capCropName(String str){
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 
     @GetMapping("/downloadfile")

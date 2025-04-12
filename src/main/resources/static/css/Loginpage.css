@@ -1,43 +1,17 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #E8FFE3;
+ body {
+    font-family: montserrat;
+    background-color: #E1EAD2;
     color: #333;
     margin: 0;
     padding: 0px;
 }
-.topnav {
-    background-color: #506959;
-    overflow: hidden;
-    display:flex;
-    align-items: center;
-    padding: 10px;
-}
-.topnav img:first-child {
-    height: 75px;
-    margin-right: auto;
-}
-.topnav img:last-child{
-    height: 75px;
-}
-.topnav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 15px;
-    transition: 0.3s;
-}
-.topnav a:hover {
-    background-color: rgb(227, 236, 228);
-    color: #4E6B40;
-    border: 1px solid #4E6B40;
-}
+
 h2 {
     text-align: center;
     font-size: 28px;
     color: #2c6f2c;
 }
+
 form {
     max-width: 400px;
     margin: 0 auto;
@@ -46,11 +20,14 @@ form {
     border-radius: 10px;
     background-color: white;
 }
+
+
 label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
 }
+
 input[type="email"],
 input[type="text"] {
     width: calc(100% - 20px);
@@ -59,7 +36,9 @@ input[type="text"] {
     border: 1px solid #2b9e3a;
     border-radius: 10px;
 }
-button {
+
+
+.otp {
     background-color: #2c6f2c;
     color: white;
     padding: 10px 15px;
@@ -68,22 +47,89 @@ button {
     cursor: pointer;
     font-size: 16px;
     width: 40%;
+    font-family: montserrat;
 }
 
-button:hover {
+
+.otp:hover {
     background-color: #245624;
 }
+
 p {
     text-align: center;
     color: red;
 }
-a {
+
+.create {
     display: block;
     text-align: center;
     margin-top: 20px;
     color: #2c6f2c;
     text-decoration: none;
 }
-a:hover {
+
+.create:hover {
     text-decoration: underline;
+} 
+
+.homepage-header {
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+    background-color: #506959;
+    padding: 15px 30px;
+    color: white;
+    font-family: montserrat;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); 
+} 
+
+.homepage-logo {
+    display: flex;
+    align-items: center;
+}
+
+.homepage-logo img {
+    width: 100px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.homepage-nav {
+    display: flex;
+    align-items: center;
+    font-family: montserrat;
+}
+
+.homepage-nav-link {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-family: montserrat;
+}
+
+.homepage-analyze-btn {
+    background-color: white;
+    color: #4b6043;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: montserrat;
+}
+
+.homepage-user-icon {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.homepage-user-icon img{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
 }

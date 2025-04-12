@@ -3,35 +3,45 @@
 
 <head>
     <title>DR CROP : LOGIN</title>
+    <link rel="stylesheet"  th:href="@{/css/style.css}">
+    <link rel="stylesheet"  th:href="@{/css/Loginpage.css}">
+    
 </head>
-<link rel="stylesheet"  th:href="@{/css/Loginpage.css}">
+
 <body>
-<div class="topnav">
-    <img th:src="@{/images/logo.png}">
-    <a href="#Support">Support</a>
-</div>
-<h2>LOGIN</h2>
+    <div class="homepage-header">
+        <div class="homepage-logo">
+            <img th:src="@{/images/logo.png}">
+        </div>
+        <div class="homepage-nav">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=drcropimca@gmail.com" target="_blank" class="homepage-nav-link">Support</a>
+            <a href="/web/aboutUs"><button class="homepage-analyze-btn">About Us</button></a>
+        </div>
+    </div>
+    <h2>LOGIN</h2>
 
-<!-- Email Submission -->
-<form action="/web/get-email" method="post">
-    <label for="email">Enter Email:</label>
-    <input type="email" id="email" name="email" required>
-    <button type="submit">Generate OTP</button>
-    <a href="/accounts/new-user-form">Create an account</a>
-</form>
+    <!-- Email Submission -->
+    <div th:if="${!otpSent}">
+        <form action="/web/get-email" method="post">
+            <label for="email">Enter Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit" class="otp">Generate OTP</button>
+            <a href="/accounts/new-user-form" class="create">Create an account</a>
+        </form>
+    </div>
 
-<!-- OTP Submission -->
-<div th:if="${otpSent}">
-    <form action="/web/verify" method="post">
-        <label for="otp">Enter OTP:</label>
-        <input type="text" id="otp" name="otp" required>
-        <button type="submit">Verify OTP</button>
+    <!-- OTP Submission -->
+    <div th:if="${otpSent}">
+        <form action="/web/verify" method="post">
+            <label for="email">Enter Email:</label>
+            <input type="email" id="mail" th:placeholder="${mailId}" disabled>
+            <label for="otp">Enter OTP:</label>
+            <input type="text" id="otp" name="otp" required>
+            <button type="submit" class="otp">Verify OTP</button>
+        </form>
+    </div>
 
-    </form>
-
-</div>
-
-<p th:if="${error}" th:text="${error}" style="color: red;"></p>
+    <p th:if="${error}" th:text="${error}" style="color: red;"></p>
 </body>
 
 

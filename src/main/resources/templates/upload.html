@@ -7,20 +7,21 @@
     <title>Dr.Crop - Crop Disease Detection</title>
     <link id="favicon" rel="icon" type="image/png" href="images/dr-crop-logo--white.png">
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    
 </head>
 
 <body id="crop-disease" class="disease-detection-body">
-<div class="disease-detection-header">
-    <div class="disease-detection-logo">
-        <img th:src="@{/images/logo.png}">
-
+    <div class="homepage-header">
+        <div class="homepage-logo">
+            <img th:src="@{/images/logo.png}">
+            
+        </div>
+        <div class="homepage-nav">
+            <a href="/web/homepage" class="homepage-nav-link">Home</a>
+            <a href="/web/aboutUs"><button class="homepage-analyze-btn">About Us</button></a>
+            <div class="homepage-user-icon"><a href="/accounts/account-user"><img th:src="@{/images/profile-icon.png}" alt=""></a></div>
+        </div>
     </div>
-    <div class="disease-detection-nav">
-        <a href="#" class="disease-detection-nav-link">Support</a>
-        <button class="disease-detection-analyze-btn">Home</button>
-        <div class="disease-detection-user-icon"></div>
-    </div>
-</div>
 
 <div class="disease-detection-container">
     <h2 class="title">Crop Disease Detection</h2>
@@ -39,10 +40,11 @@
                 <select  id="crop" name="crop" class="disease-detection-crop-select">
                     <option value="" disabled selected>Select Crop</option>
                     <option value="rice">Rice</option>
-                    <option value="wheat">Wheat</option>
+                    <option value="grape">Grape</option>
                     <option value="apple">Apple</option>
-                    <option value="sugarcane">Sugarcane</option>
+                    <option value="potato">Potato</option>
                     <option value="tomato">Tomato</option>
+                    <option value="corn">Corn</option>
                 </select>
                 <button  class="disease-detection-upload-submit" type="submit">Upload</button>
             </div>

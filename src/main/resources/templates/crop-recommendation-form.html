@@ -2,72 +2,86 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/CropRecommendation.css}">
+    
+    
 </head>
-<link rel="stylesheet" th:href="@{/css/CropRecommendation.css}">
+
 
 <body>
-<div>
-    <div class="topnav">
-        <img th:src="@{/images/logo.png}">
-        <a href="#Support">Support</a>
-        <a href="#AnalyzeNow">Home</a>
-        <a href="/accounts/account-user"><img th:src="@{/images/logo.jpg}"></a>
+    <div class="homepage-header">
+        <div class="homepage-logo">
+            <img th:src="@{/images/logo.png}">
+            
+        </div>
+        <div class="homepage-nav">
+            <a href="/web/homepage" class="homepage-nav-link">Home</a>
+            <a href="/web/aboutUs"><button class="homepage-analyze-btn">About Us</button></a>
+            <div class="homepage-user-icon"><a href="/accounts/account-user"><img th:src="@{/images/profile-icon.png}" alt=""></a></div>
+        </div>
+    </div>
+    <div>
 
+        <h2>Enter Soil Details : </h2>
+        <form action="/web/soil-recommendation" method="post" class="crop-card">
+            <table style="border-spacing: 20px;">
+                <tr>
+                    <th><label>Nitrogen : </label></th>
+                    <td><input type="number" step="0.01" name="nitrogen" required class="input-field"
+                            placeholder="in Kg/Ha"></td>
+                    <td rowspan="7">
+                        <div class="video-container">
+                            <video width="100%" autoplay loop>
+                                <source th:src="@{/videos/video1.mp4}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th><label>Phosphorus : </label></th>
+                    <td><input type="number" step="0.01" name="phosphorus" required class="input-field"
+                            placeholder="in Kg/Ha"></td>
+                </tr>
+                <tr>
+                    <th><label>Potassium : </label></th>
+                    <td><input type="number" step="0.01" name="potassium" required class="input-field"
+                            placeholder="in Kg/Ha"></td>
+                </tr>
+                <tr>
+                    <th><label>Temperature : </label></th>
+                    <td><input type="number" step="0.01" name="temperature" required class="input-field"
+                            placeholder="in ℃"></td>
+                </tr>
+                <tr>
+                    <th><label>Humidity : </label></th>
+                    <td><input type="number" step="0.01" name="humidity" required class="input-field"
+                            placeholder="in Percentage"></td>
+                </tr>
+                <tr>
+                    <th><label>pH : </label></th>
+                    <td><input type="number" step="0.01" name="pH" required class="input-field"
+                            placeholder="Between 1-14"></td>
+                </tr>
+                <tr>
+                    <th><label>Rainfall : </label></th>
+                    <td><input type="number" step="0.01" name="rainfall" required class="input-field"
+                            placeholder="in mm"></td>
+                </tr>
+
+            </table>
+            <br>
+            <br>
+            <button type="submit" class="done">Submit</button>
+
+
+        </form>
     </div>
 
-    <h2>Enter Soil Details : </h2>
-    <form action="/web/soil-recommendation" method="post" class="card">
-        <table style="border-spacing: 20px;">
-            <tr>
-                <th><label>Nitrogen : </label></th>
-                <td><input type="number" step="0.01" name="nitrogen" required class="input-field" placeholder="in Kg/Ha"></td>
-                <td rowspan="7">
-                    <div class="video-container">
-                        <video width="100%" autoplay loop>
-                            <source th:src="@{/videos/video1.mp4}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <th><label>Phosphorus : </label></th>
-                <td><input type="number" step="0.01" name="phosphorus" required class="input-field" placeholder="in Kg/Ha"></td>
-            </tr>
-            <tr>
-                <th><label>Potassium : </label></th>
-                <td><input type="number" step="0.01" name="potassium" required class="input-field" placeholder="in Kg/Ha"></td>
-            </tr>
-            <tr>
-                <th><label>Temperature : </label></th>
-                <td><input type="number" step="0.01" name="temperature" required class="input-field" placeholder="in ℃"></td>
-            </tr>
-            <tr>
-                <th><label>Humidity : </label></th>
-                <td><input type="number" step="0.01" name="humidity" required class="input-field" placeholder="in Percentage"></td>
-            </tr>
-            <tr>
-                <th><label>pH : </label></th>
-                <td><input type="number" step="0.01" name="pH" required class="input-field" placeholder="Between 1-14"></td>
-            </tr>
-            <tr>
-                <th><label>Rainfall : </label></th>
-                <td><input type="number" step="0.01" name="rainfall" required class="input-field" placeholder="in mm"></td>
-            </tr>
-
-        </table>
-        <br>
-        <br>
-        <button type="submit">Submit</button>
-
-
-    </form>
-</div>
-
-<p th:if="${error}" th:text="${error}" style="color:red;"></p>
+    <p th:if="${error}" th:text="${error}" style="color:red;"></p>
 </body>
 
 </html>

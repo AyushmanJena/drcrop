@@ -3,18 +3,19 @@
 <head>
     <title>Dr.Crop - Agricultural Solutions</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+   
 
 </head>
 <body class="homepage-body">
 <div class="homepage-header">
     <div class="homepage-logo">
-        <img src="images/dr-crop-logo--white.png" alt="Dr.Crop Logo">
-
+        <img th:src="@{/images/logo.png}">
+        
     </div>
     <div class="homepage-nav">
-        <a href="#" class="homepage-nav-link">Support</a>
-        <button class="homepage-analyze-btn">Analyze Now</button>
-        <div class="homepage-user-icon"><a href="/accounts/account-user"><img src="images/applescab-leaf.jpg" alt=""></a></div>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=drcropimca@gmail.com" target="_blank" class="homepage-nav-link">Support</a>
+        <a href="/web/aboutUs"><button class="homepage-analyze-btn">About Us</button></a>
+        <div class="homepage-user-icon"><a href="/accounts/account-user"><img th:src="@{/images/profile-icon.png}" alt=""></a></div>
     </div>
 </div>
 
@@ -25,7 +26,7 @@
         <div class="left-column">
             <!-- Soil Analysis Card - Top Left (now horizontal) -->
             <div class="card card-horizontal top-card">
-                <img src="images/top-view-hands-manipulating-plant - Copy.jpg" alt="Soil Analysis">
+                <img th:src="@{/images/crop-recommendation.png}" alt="Soil Analysis">
                 <div class="card-horizontal-content">
                     <h2 class="card-title">SOIL ANALYSIS &<br>CROP RECOMMENDATION</h2>
                     <a href="/web/soil-recommendation"><button class="homepage-btn">Try Now</button></a>
@@ -34,10 +35,10 @@
 
             <!-- Medicine Store Card - Bottom Left -->
             <div class="card card-horizontal bottom-card">
-                <img src="images/high-angle-selective-focus-shot-green-leaves-with-blurred.jpg" alt="Medicine Store">
+                <img th:src="@{/images/drcrop-store.png}" alt="Medicine Store">
                 <div class="card-horizontal-content">
                     <h2 class="card-title">MEDICINE STORE</h2>
-                    <a href="/web/store/all"><button class="homepage-btn">Try Now</button></a>
+                    <a href="/web/store/all"><button class="homepage-btn">Buy Now</button></a>
                 </div>
             </div>
         </div>
@@ -46,7 +47,7 @@
         <div class="right-column">
             <!-- Plant Disease Card - Right Side (80vh Height) -->
             <div class="card tall-card">
-                <img src="images/high-angle-selective-focus-shot-green-leaves-with-blurred.jpg" alt="Plant Disease Detection">
+                <img th:src="@{/images/disease-prediction.png}" alt="Plant Disease Detection">
                 <h2 class="card-title">PLANT DISEASE DETECTION</h2>
                 <p class="card-subtitle">[FROM LEAF IMAGE]</p>
                 <a href="/web/upload"><button class="homepage-btn">Try Now</button></a>

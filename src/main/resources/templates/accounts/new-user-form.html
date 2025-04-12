@@ -4,20 +4,21 @@
 <head>
     <title>DR CROP</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    
 </head>
 
 <body class="new-user-form-body">
-<div class="new-user-form-header">
-    <div class="new-user-form-logo">
-        <img th:src="@{/images/logo.png}">
-
+    <div class="homepage-header">
+        <div class="homepage-logo">
+            <img th:src="@{/images/logo.png}">
+            
+        </div>
+        <div class="homepage-nav">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=drcropimca@gmail.com" target="_blank" class="homepage-nav-link">Support</a>
+            <a href="/web/aboutUs"><button class="homepage-analyze-btn">About Us</button></a>
+            
+        </div>
     </div>
-    <div class="new-user-form-nav">
-        <a href="#" class="new-user-form-nav-link">Support</a>
-        <button class="new-user-form-analyze-btn">Analyze Now</button>
-        <div class="new-user-form-user-icon"></div>
-    </div>
-</div>
 <h2 class="new-user-form-h2">Create new Account</h2>
 
 <form action="/accounts/new-user-form" method="post" class="new-user-form-form">

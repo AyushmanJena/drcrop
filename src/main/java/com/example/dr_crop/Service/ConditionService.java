@@ -107,6 +107,13 @@ public class ConditionService {
 
     }
 
+    public String replaceSpaces(String input) {
+        if (input == null) {
+            return null;
+        }
+        return input.replace(" ", "%20");
+    }
+
     public void convertConditionResultToPdf(ConditionResult conditionResult, String filetemp) {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         Document document = new Document();

@@ -4,24 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Dr Crop Condition</title>
-    <link rel="stylesheet"  th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet"  th:href="@{/css/SoilResult.css}">
-    
+
 </head>
 
 
 <body>
-    <div class="homepage-header">
-        <div class="homepage-logo">
-            <img th:src="@{/images/logo.png}">
-            
-        </div>
-        <div class="homepage-nav">
-            <a href="/web/homepage" class="homepage-nav-link">Home</a>
-            <a href="/web/aboutUs"><button class="homepage-analyze-btn">About Us</button></a>
-            <div class="homepage-user-icon"><a href="/accounts/account-user"><img th:src="@{/images/profile-icon.png}" alt=""></a></div>
-        </div>
+<div class="homepage-header">
+    <div class="homepage-logo">
+        <img th:src="@{/images/logo.png}">
+
     </div>
+    <div class="homepage-nav">
+        <a href="#" class="homepage-nav-link">Support</a>
+        <a href="/web/aboutUs"><button class="homepage-analyze-btn">About Us</button></a>
+        <div class="homepage-user-icon"><a href="/accounts/account-user"><img th:src="@{/images/profile-icon.png}" alt=""></a></div>
+    </div>
+</div>
 
 <h1>CROP RECOMMENDATION :</h1>
 <div class="card">
@@ -30,12 +30,12 @@
         <h3><span th:text="${crop}"></span></h3>
         <br>
         <br>
-        <h3>Why ?</h3>
+        <h3>Why <span th:text="${crop}"></span>?</h3>
         <p><span th:text="${suggestion}"></span></p>
 
     </div>
     <div class="card-img">
-        <!-- <img src="crop field.jpg" alt=""> -->
+        <img th:src="@{'/images/' + ${crop} + '.png'}">
     </div>
 </div>
 </body>

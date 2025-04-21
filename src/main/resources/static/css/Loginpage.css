@@ -4,6 +4,7 @@
     color: #333;
     margin: 0;
     padding: 0px;
+    margin-bottom: 20px;
 }
 
 h2 {
@@ -19,6 +20,7 @@ form {
     border: 2px solid #2c6f2c;
     border-radius: 10px;
     background-color: white;
+    margin-bottom: 30px:
 }
 
 
@@ -83,7 +85,9 @@ p {
     font-family: montserrat;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); 
 } 
-
+.otpcard {
+    margin-bottom:30px;
+}
 .homepage-logo {
     display: flex;
     align-items: center;

@@ -152,13 +152,11 @@ public class WebController {
             System.out.println("upload : " + 2);
 
             if (conditionResult != null) {
-                System.out.println("upload : " + 3);
-                conditionService.convertConditionResultToPdf(conditionResult, fileName);
-                model.addAttribute("conditionResult", conditionResult);
-                System.out.println("upload : " + 4);
                 String diseaseName = conditionService.replaceSpaces(conditionResult.conditionName+"-"+capCropName(conditionResult.plantName));
                 String conditionUrl = "/web/store/" + diseaseName;//+conditionResult.conditionName;
                 model.addAttribute("diseaseMedicine", conditionUrl);
+                conditionService.convertConditionResultToPdf(conditionResult, fileName, conditionResult.conditionName+"-"+capCropName(conditionResult.plantName));
+                model.addAttribute("conditionResult", conditionResult);
                 //model.addAttribute("imageUrl", inputStoragePath+"/"+fileName+ ".jpg");
                 return "result";
             }

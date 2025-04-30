@@ -34,8 +34,6 @@ import java.util.List;
 public class ConditionService {
     private final RestTemplate restTemplate = new RestTemplate();
 
-
-
     @Autowired
     private MedicineRepository medicineRepository;
 
@@ -114,9 +112,18 @@ public class ConditionService {
         return input.replace(" ", "%20");
     }
 
-    public void convertConditionResultToPdf(ConditionResult conditionResult, String filetemp) {
+    public void convertConditionResultToPdf(ConditionResult conditionResult, String filetemp, String diseaseName) {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         Document document = new Document();
+
+        // get medicines list
+        List<DiseaseMedicine.Medicine> medicines = getMedicinesFromDiseaseName(diseaseName);
+        String[] meds = new String[medicines.size()];
+
+        for(int i = 0; i<meds.length ;i++){
+            meds[i] = medicines.get(i).getMedicineName();
+            System.out.println(meds[i]);
+        }
 
         try {
             PdfWriter.getInstance(document, out);
@@ -126,6 +133,10 @@ public class ConditionService {
             Paragraph titlePara = new Paragraph("Dr. Crop Report", titleFont);
             titlePara.setAlignment(Element.ALIGN_CENTER);
             document.add(titlePara);
+            titlePara.add(Chunk.NEWLINE);
+            Paragraph titlePara2 = new Paragraph("------------------------------------------------------------------------------", titleFont);
+            titlePara2.setAlignment(Element.ALIGN_CENTER);
+            document.add(titlePara2);
 
             // Create a table with 2 columns: left for text, right for image
             PdfPTable table = new PdfPTable(2);
@@ -138,12 +149,26 @@ public class ConditionService {
             Paragraph paragraph2 = new Paragraph("Condition  : " + conditionResult.conditionName, paraFont);
             Paragraph paragraph3 = new Paragraph("Accuracy   : " + conditionResult.accuracy, paraFont);
 
+
             Paragraph textPara = new Paragraph();
             textPara.add(paragraph1);
             textPara.add(Chunk.NEWLINE);
             textPara.add(paragraph2);
             textPara.add(Chunk.NEWLINE);
             textPara.add(paragraph3);
+            textPara.add(Chunk.NEWLINE);
+            textPara.add(Chunk.NEWLINE);
+            textPara.add(Chunk.NEWLINE);
+            textPara.add(Chunk.NEWLINE);
+            textPara.add(Chunk.NEWLINE);
+            textPara.add(Chunk.NEWLINE);
+            textPara.add(new Paragraph("MEDICINES", titleFont));
+            textPara.add(Chunk.NEWLINE);
+            for(String m : meds){
+                Paragraph medLine = new Paragraph(" • " + m, paraFont);
+                textPara.add(medLine);
+                textPara.add(Chunk.NEWLINE);
+            }
 
             PdfPCell textCell = new PdfPCell(textPara);
             textCell.setBorder(Rectangle.NO_BORDER);

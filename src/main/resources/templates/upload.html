@@ -7,55 +7,67 @@
     <title>Dr.Crop - Crop Disease Detection</title>
     <link id="favicon" rel="icon" type="image/png" href="images/dr-crop-logo--white.png">
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    
+
 </head>
 
 <body id="crop-disease" class="disease-detection-body">
-    <div class="homepage-header">
-        <div class="homepage-logo">
-            <img th:src="@{/images/logo.png}">
-            
-        </div>
-        <div class="homepage-nav">
-            <a href="/web/homepage" class="homepage-nav-link">Home</a>
-            <a href="/web/aboutUs"><button class="homepage-analyze-btn">About Us</button></a>
-            <div class="homepage-user-icon"><a href="/accounts/account-user"><img th:src="@{/images/profile-icon.png}" alt=""></a></div>
-        </div>
+<div class="homepage-header">
+    <div class="homepage-logo">
+        <img th:src="@{/images/logo.png}">
+
     </div>
+    <div class="homepage-nav">
+        <a href="/web/homepage" class="homepage-nav-link">Home</a>
+        <a href="/web/aboutUs"><button class="homepage-analyze-btn">About Us</button></a>
+        <div class="homepage-user-icon"><a href="/accounts/account-user"><img th:src="@{/images/profile-icon.png}" alt=""></a></div>
+    </div>
+</div>
 
 <div class="disease-detection-container">
     <h2 class="title">Crop Disease Detection</h2>
 
     <div class="disease-detection-detection-box">
         <form action="/web/upload" method="post" enctype="multipart/form-data">
-            <div class="disease-detection-upload-section">
-                <div class="disease-detection-upload-box">
-                    <p class="disease-detection-upload-title">Upload the leaf image</p>
-                    <br>
-                    <input type="file" id="browse-button" name="file" class="disease-detection-browse-button"
-                           value="Browse Files" required>
-                    <label for="browse-button" class="disease-detection-custom-browse">Browse Files</label>
-                </div>
+            <table>
+                <tr>
+                    <th>
+                        <div class="disease-detection-upload-section">
+                            <div class="disease-detection-upload-box">
+                                <p class="disease-detection-upload-title">Upload the leaf image</p>
+                                <br>
+                                <input type="file" id="browse-button" name="file" class="disease-detection-browse-button"
+                                       value="Browse Files" required>
+                                <label for="browse-button" class="disease-detection-custom-browse">Browse Files</label>
+                            </div>
 
-                <select  id="crop" name="crop" class="disease-detection-crop-select">
-                    <option value="" disabled selected>Select Crop</option>
-                    <option value="apple">Apple</option>
-                    <option value="corn">Corn</option>
-                    <option value="grape">Grape</option>
-                    <option value="potato">Potato</option>
-                    <option value="rice">Rice</option>
-                    <option value="tomato">Tomato</option>
+                            <select  id="crop" name="crop" class="disease-detection-crop-select">
+                                <option value="" disabled selected>Select Crop</option>
+                                <option value="apple">Apple</option>
+                                <option value="corn">Corn</option>
+                                <option value="grape">Grape</option>
+                                <option value="potato">Potato</option>
+                                <option value="rice">Rice</option>
+                                <option value="tomato">Tomato</option>
 
-                </select>
-                <button  class="disease-detection-upload-submit" type="submit">Upload</button>
-            </div>
+                            </select>
+                            <button  class="disease-detection-upload-submit" type="submit">Upload</button>
+                        </div>
+                    </th>
+                    <th>
+
+                        <div class="video-container">
+                            <video height="400px" style="margin-left: 135%; border-radius:9px;" autoplay loop muted>
+                                <source th:src="@{/videos/video1.mp4}" src="/videos/video1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                    </th>
+                </tr>
+            </table>
+
         </form>
 
-
-        <div class="disease-detection-preview-section">
-            <img src="images/high-angle-selective-focus-shot-green-leaves-with-blurred.jpg" alt="Preview"
-                 class="disease-detection-preview-image">
-        </div>
     </div>
 
     <div class="disease-detection-instructions">

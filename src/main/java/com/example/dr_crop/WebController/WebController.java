@@ -58,10 +58,10 @@ public class WebController {
             return "login";
         }
 
-//        String generatedOTP = userService.generateOTP();
-//        userService.sendOtpToMail(email, generatedOTP);  // Ensure OTP is actually sent
+        String generatedOTP = userService.generateOTP();
+        userService.sendOtpToMail(email, generatedOTP);  // Ensure OTP is actually sent
 
-        String generatedOTP = "abc"; // testing otp
+        //String generatedOTP = "abc"; // testing otp
 
         session.setAttribute("generatedOtp", generatedOTP);
         session.setAttribute("email", email);

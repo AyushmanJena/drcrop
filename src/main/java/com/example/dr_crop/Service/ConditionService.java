@@ -80,7 +80,7 @@ public class ConditionService {
             // Extracting response
             ConditionResult conditionResult = response.getBody();
 
-            System.out.println("test : 5");
+            //System.out.println("test : 5");
             System.out.println("Plant Name: " + conditionResult.getPlantName());
 
             return conditionResult;
